@@ -7,15 +7,15 @@ COPY gradlew .
 COPY gradle gradle
 COPY settings.gradle .
 COPY build.gradle .
-COPY resource-service/build.gradle resource-service/
+COPY resources-service/build.gradle resources-service/
 
 # Download dependencies
 RUN chmod +x gradlew
-RUN ./gradlew :resource-service:dependencies --no-daemon
+RUN ./gradlew :resources-service:dependencies --no-daemon
 
 # Build the application
-COPY resource-service/src resource-service/src
-RUN ./gradlew :resource-service:clean :resource-service:build \
+COPY resources-service/src resources-service/src
+RUN ./gradlew :resources-service:clean :resources-service:build \
     --no-daemon \
     -x test
 
@@ -23,6 +23,6 @@ RUN ./gradlew :resource-service:clean :resource-service:build \
 FROM eclipse-temurin:21-jre-alpine
 
 WORKDIR /app
-COPY --from=build /app/resource-service/build/libs/*.jar app.jar
+COPY --from=build /app/resources-service/build/libs/*.jar app.jar
 
 CMD ["java", "-jar", "app.jar"]
