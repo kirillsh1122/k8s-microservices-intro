@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="77de4265-96ac-4b48-b540-22196aecdd78" name="Changes" comment="initial">
-      <change afterPath="$PROJECT_DIR$/k8s/service/svc.resource-service.nodeport.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/k8s/service/svc.song-service.nodeport.yaml" afterDir="false" />
+    <list default="true" id="77de4265-96ac-4b48-b540-22196aecdd78" name="Changes" comment="updated .gitignore">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,18 +56,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "kirillsh1122"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;kirillsh1122&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/kirillsh1122/k8s-microservices-intro.git",
-    "accountId": "91ea3e6c-2308-417c-a740-94bf9bea89f8"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/kirillsh1122/k8s-microservices-intro.git&quot;,
+    &quot;accountId&quot;: &quot;91ea3e6c-2308-417c-a740-94bf9bea89f8&quot;
   }
-}]]></component>
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -84,21 +82,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.Upgrade Gradle wrapper.executor": "Run",
-    "Gradle.microservices-intro [build].executor": "Run",
-    "Gradle.microservices-intro:songs-service [build].executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "task__1__k8s__overview",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/EPAM_Courses/k8s-microservices-intro/k8s/service",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Upgrade Gradle wrapper.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.microservices-intro [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.microservices-intro:songs-service [build].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;task__1__k8s__overview&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/EPAM_Courses/k8s-microservices-intro/k8s/service&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\EPAM_Courses\k8s-microservices-intro\k8s\service" />
@@ -184,7 +182,23 @@
       <option name="project" value="LOCAL" />
       <updated>1789318033293</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="added service configuration">
+      <option name="closed" value="true" />
+      <created>1789319499675</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1789319499675</updated>
+    </task>
+    <task id="LOCAL-00004" summary="updated .gitignore">
+      <option name="closed" value="true" />
+      <created>1789319595480</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1789319595480</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -192,6 +206,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial" />
+    <MESSAGE value="added service configuration" />
+    <MESSAGE value="updated .gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated .gitignore" />
   </component>
 </project>
