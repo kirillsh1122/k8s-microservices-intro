@@ -1,5 +1,5 @@
 # Smaller OS footprint using JRE
-FROM openjdk:21
+FROM gradle:jdk21
 WORKDIR /app
 
 # Copy only the Jar from the current dir
