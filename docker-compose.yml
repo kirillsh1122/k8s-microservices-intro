@@ -1,7 +1,7 @@
 # postgres --------------------------------------------------------------------
 services:
   resources-ms:
-    image: resources-image
+    image: resource-service-k8s
     build:
       context: resources-service
     ports:
@@ -15,7 +15,7 @@ services:
       - eureka-server
 
   songs-ms:
-    image: songs-image
+    image: songs-service-k8s
     build:
       context: songs-service
     ports:
@@ -31,7 +31,7 @@ services:
     volumes:
       - db-data:/var/lib/postgresql/data
     ports:
-      - 5432:5432
+      - 5433:5432
     env_file:
       - .env
     restart: always
@@ -40,14 +40,14 @@ services:
     volumes:
       - db-data:/var/lib/postgresql/data
     ports:
-      - 5433:5432
+      - 5432:5432
     env_file:
       - .env
     restart: always
 
   # eureka server --------------------------------------------------------------------
   eureka-server:
-    image: eureka-server-image
+    image: eureka-k8s
     build:
       context: eureka
     ports:
