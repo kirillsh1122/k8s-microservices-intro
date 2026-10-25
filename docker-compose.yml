@@ -27,7 +27,7 @@ services:
       - songs-db
       - eureka-server
   songs-db:
-    image: postgres
+    image: postgres:17-alpine
     volumes:
       - db-data:/var/lib/postgresql/data
     ports:
@@ -36,7 +36,7 @@ services:
       - .env
     restart: always
   resources-db:
-    image: postgres
+    image: postgres:17-alpine
     volumes:
       - db-data:/var/lib/postgresql/data
     ports:
