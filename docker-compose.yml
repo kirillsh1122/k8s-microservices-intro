@@ -29,7 +29,7 @@ services:
   songs-db:
     image: postgres:17-alpine
     volumes:
-      - db-data:/var/lib/postgresql/data
+      - songs-db-data:/var/lib/postgresql/data
     ports:
       - 5433:5432
     env_file:
@@ -38,7 +38,7 @@ services:
   resources-db:
     image: postgres:17-alpine
     volumes:
-      - db-data:/var/lib/postgresql/data
+      - resources-db-data:/var/lib/postgresql/data
     ports:
       - 5432:5432
     env_file:
@@ -70,5 +70,6 @@ services:
 
 # volumes --------------------------------------------------------------------
 volumes:        # declaration of the volume which might be needed
-  db-data:
-  pg-admin:
+  resources-db-data:
+  songs-db-data:
+#  pg-admin:
