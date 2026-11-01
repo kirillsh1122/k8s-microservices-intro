@@ -1,0 +1,20 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: manual-songs-pv
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: manual
+  capacity:
+    storage: 1Gi
+  hostPath:
+    path: /tmp/songs/pv-local-storage
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+          - key: kubernetes.io/hostname
+            operator: In
+            values:
+            - k3s-worker-2

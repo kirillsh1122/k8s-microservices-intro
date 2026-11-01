@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: song-ms-deployment
+  name: song-ms-deployment
+  namespace: k8s-program
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: song-ms-deployment
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: song-ms-deployment
+    spec:
+      volumes:
+        - name: manual-song-pv
+          persistentVolumeClaim:
+            claimName: manual-songs-pvc
+      containers:
+      - image: k8s-java-private-registry.local:5000/songs-service-k8s:v1
+        name: songs-ms-k8s
+        env:
+          - name: SONGS_MS_NAME
+            value: "songs-ms"
+          - name: SONGS_MS_PORT
+            value: "8081"
+          - name: SONGS_DB_URL
+            value: "song-db-0.song-db-pods.k8s-program.svc.cluster.local"
+          - name: SONGS_DB_PORT
+            value: "5432"
+        volumeMounts:
+          - name: manual-song-pv
+            mountPath: /tmp/song-manual-storage
+        ports:
+          - containerPort: 8081
+            protocol: TCP
+        resources: {}
+status: {}

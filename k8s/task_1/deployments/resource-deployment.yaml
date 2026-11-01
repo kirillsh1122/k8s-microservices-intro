@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: resource-ms-deployment
+  name: resource-ms-deployment
+  namespace: k8s-program
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: resource-ms-deployment
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: resource-ms-deployment
+    spec:
+      containers:
+      - image: k8s-java-private-registry.local:5000/resource-service-k8s:v1
+        name: resources-ms-k8s
+        env:
+          - name: RESOURCES_MS_NAME
+            value: "resources-ms"
+          - name: RESOURCES_MS_PORT
+            value: "8080"
+          - name: SONGS_MS_URL
+            value: "song-ms-np-svc.k8s-program.svc.cluster.local"    
+          - name: SONGS_MS_PORT
+            value: "8081"
+          - name: RESOURCES_DB_URL
+            value: resource-db-0.resource-db-pods.k8s-program.svc.cluster.local
+          - name: RESOURCES_DB_PORT
+            value: "5432"
+        ports:
+          - containerPort: 8081
+            protocol: TCP
+        resources: {}
+status: {}
