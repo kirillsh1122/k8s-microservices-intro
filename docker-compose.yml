@@ -28,8 +28,10 @@ services:
       - eureka-server
   songs-db:
     image: postgres:17-alpine
+#    volumes:
+#      - songs-db-data:/var/lib/postgresql/data
     volumes:
-      - songs-db-data:/var/lib/postgresql/data
+      - ./init-scripts/song-db/init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - 5433:5432
     env_file:
@@ -37,8 +39,10 @@ services:
     restart: always
   resources-db:
     image: postgres:17-alpine
+#    volumes:
+#      - resources-db-data:/var/lib/postgresql/data
     volumes:
-      - resources-db-data:/var/lib/postgresql/data
+      - ./init-scripts/resource-db/init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - 5432:5432
     env_file:
