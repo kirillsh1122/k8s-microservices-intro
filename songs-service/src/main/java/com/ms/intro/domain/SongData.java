@@ -31,6 +31,9 @@ public class SongData {
     String album;
 
     @Column(nullable = true)
+    String genre;
+
+    @Column(nullable = true)
     String length;
 
     @Column(unique = true, nullable = false)
