@@ -20,6 +20,8 @@ public class SongDataDto {
 
     String album;
 
+    String genre;
+
     String length;
 
     @NotNull Integer resourceId;
