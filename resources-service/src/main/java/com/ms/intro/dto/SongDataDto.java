@@ -20,7 +20,7 @@ public class SongDataDto {
 
     String album;
 
-//    String genre;
+    String genre;
 
     String length;
 

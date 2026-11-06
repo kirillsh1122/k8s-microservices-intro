@@ -30,8 +30,8 @@ public class SongData {
     @Column(nullable = true)
     String album;
 
-//    @Column(nullable = true)
-//    String genre;
+    @Column(nullable = true)
+    String genre;
 
     @Column(nullable = true)
     String length;
