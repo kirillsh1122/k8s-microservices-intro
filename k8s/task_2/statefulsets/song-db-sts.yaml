@@ -1,0 +1,96 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: song-db
+  namespace: k8s-program
+  labels:
+    app: song-db
+spec:
+  serviceName: song-db-pods
+  replicas: 1
+  selector:
+    matchLabels:
+      app: song-db
+  template:
+    metadata:
+      labels:
+        app: song-db
+    spec:
+      volumes:
+        - name: init-db
+          configMap:
+            name: song-db-init-cm
+      containers:
+      - name: song-db
+        image: k8s-java-private-registry.local:5000/postgres:17-alpine
+        envFrom:
+          - secretRef:
+              name: db-creds-secret
+        ports:
+          - containerPort: 5432
+            protocol: TCP
+            name: postgres-port
+        volumeMounts:
+        - name: song-db-data
+          mountPath: /var/lib/postgresql/data
+        - name: init-db
+          subPath: init.sql
+          mountPath: /docker-entrypoint-initdb.d/init.sql
+        startupProbe:
+          exec:
+            command:
+              - /bin/sh
+              - -c
+              - "pg_isready -U $POSTGRES_USER -d $POSTGRES_DB -q"
+          failureThreshold: 10
+          periodSeconds: 2
+        livenessProbe:
+          exec:
+            command:
+              - /bin/sh
+              - -c
+              - "pg_isready -U $POSTGRES_USER -d $POSTGRES_DB -q"
+          failureThreshold: 1
+          periodSeconds: 5
+        readinessProbe:
+          exec:
+            command:
+              - /bin/sh
+              - -c
+              - "psql -w -U $POSTGRES_USER -d $POSTGRES_DB -c 'SELECT 1 from public.songs;'"
+          failureThreshold: 2
+          periodSeconds: 5
+          successThreshold: 2
+      nodeSelector:
+        kubernetes.io/hostname: k3s-worker-2
+  volumeClaimTemplates:
+    - metadata:
+        name: song-db-data
+        labels:
+          app: song-db
+      spec:
+        storageClassName: db-stateful-sc
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 4Gi
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: song-db-pods
+  namespace: k8s-program
+  labels:
+    app: song-db
+spec:
+  clusterIP: None
+  publishNotReadyAddresses: true
+  selector:
+    app: song-db
+  ports:
+  - name: postgres-port
+    port: 5432
+    targetPort: 5432
+    protocol: TCP

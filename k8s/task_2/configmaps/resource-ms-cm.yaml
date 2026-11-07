@@ -1,0 +1,12 @@
+apiVersion: v1
+data:
+  RESOURCES_DB_PORT: "5432"
+  RESOURCES_DB_URL: resource-db-0.resource-db-pods.k8s-program.svc.cluster.local
+  RESOURCES_MS_NAME: resources-ms
+  RESOURCES_MS_PORT: "8080"
+  SONGS_MS_PORT: "8081"
+  SONGS_MS_URL: song-ms-np-svc.k8s-program.svc.cluster.local
+kind: ConfigMap
+metadata:
+  name: resource-ms-cm
+  namespace: k8s-program
