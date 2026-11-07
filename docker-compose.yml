@@ -1,7 +1,7 @@
 # postgres --------------------------------------------------------------------
 services:
   resources-ms:
-    image: resource-service-k8s
+    image: resources-service:v2.0.0
     build:
       context: resources-service
     ports:
@@ -15,7 +15,7 @@ services:
       - eureka-server
 
   songs-ms:
-    image: songs-service-k8s
+    image: songs-service:v2.0.0
     build:
       context: songs-service
     ports:

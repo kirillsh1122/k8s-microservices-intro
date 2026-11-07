@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dnsutils
+  namespace: default
+spec:
+  containers:
+  - name: dnsutils
+    image: k8s-java-private-registry.local:5000/agnhost:2.39
+    imagePullPolicy: IfNotPresent
+  restartPolicy: Always
