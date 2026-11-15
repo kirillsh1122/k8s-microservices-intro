@@ -7,8 +7,5 @@ data:
   POSTGRES_USER: postgres
 kind: ConfigMap
 metadata:
-  creationTimestamp: "2026-10-31T23:15:59Z"
   name: db-config
   namespace: k8s-program
-  resourceVersion: "4033"
-  uid: 766d006d-8076-443b-b5b4-e2c815186726
