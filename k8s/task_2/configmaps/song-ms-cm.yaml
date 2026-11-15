@@ -3,7 +3,7 @@ data:
   SONGS_DB_PORT: "5432"
   SONGS_DB_URL: song-db-0.song-db-pods.k8s-program.svc.cluster.local
   SONGS_MS_NAME: songs-ms
-  SONGS_MS_PORT: "8081"
+  SONGS_MS_PORT: "8080"
 kind: ConfigMap
 metadata:
   name: song-ms-cm

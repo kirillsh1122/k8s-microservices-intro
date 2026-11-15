@@ -26,6 +26,8 @@ spec:
         envFrom:
           - secretRef:
               name: db-creds-secret
+          - configMapRef:
+              name: db-config-cm
         ports:
           - containerPort: 5432
             protocol: TCP

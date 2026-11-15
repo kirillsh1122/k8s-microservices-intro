@@ -1,4 +1,6 @@
-# Smaller OS footprint using JRE
+# Multi-stage build:
+# 1. Compile & Build the application (jdk 21)
+# 2. Run the application (jre 21)
 FROM eclipse-temurin:21-jdk-alpine AS build
 WORKDIR /app
 
